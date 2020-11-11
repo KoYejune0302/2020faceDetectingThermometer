@@ -28,10 +28,13 @@ IMAGE_BASE_URL = 'https://raw.githubusercontent.com/KoYejune0302/2020faceDetecti
 
 
 
-# Create a list to hold the target photos of the same person
-target_image_file_names = os.listdir('/Users/leekyohyun/Documents/GitHub/2020faceDetectingThermometer/target')
 # The source photos contain this person
 source_image_file_names = os.listdir('/Users/leekyohyun/Documents/GitHub/2020faceDetectingThermometer/source')
+# Create a list to hold the target photos of the same person
+target_image_file_names = os.listdir('/Users/leekyohyun/Documents/GitHub/2020faceDetectingThermometer/target')
+
+for i in range(len(source_image_file_names)):
+    print(source_image_file_names[i])
 
 
 
@@ -56,7 +59,7 @@ source_detected_faces_ids = []
 # Detect faces from target image url list, returns a list[DetectedFaces]
 for image_file_name in source_image_file_names:
     # We use detection model 2 because we are not retrieving attributes.
-    source_detected_faces = face_client.face.detect_with_url(IMAGE_BASE_URL + image_file_name, detectionModel='detection_03')
+    source_detected_faces = face_client.face.detect_with_url(IMAGE_BASE_URL + 'source/' + image_file_name, detectionModel='detection_03')
     # Add the returned face's face ID
     source_detected_faces_ids.append(source_detected_faces[0].face_id)
     print('{} face(s) detected from image {}.'.format(len(source_detected_faces), image_file_name))
@@ -68,7 +71,7 @@ target_detected_faces_ids = []
 # Detect faces from target image url list, returns a list[DetectedFaces]
 for image_file_name in target_image_file_names:
     # We use detection model 2 because we are not retrieving attributes.
-    target_detected_faces = face_client.face.detect_with_url(IMAGE_BASE_URL + image_file_name, detectionModel='detection_03')
+    target_detected_faces = face_client.face.detect_with_url(IMAGE_BASE_URL + 'target' + image_file_name, detectionModel='detection_03')
     # Add the returned face's face ID
     target_detected_faces_ids.append(target_detected_faces[0].face_id)
     print('{} face(s) detected from image {}.'.format(len(target_detected_faces), image_file_name))
