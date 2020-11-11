@@ -29,9 +29,11 @@ IMAGE_BASE_URL = 'https://raw.githubusercontent.com/KoYejune0302/2020faceDetecti
 # Create a list to hold the target photos of the same person
 target_image_file_names = ['shuhua1.jpg','shuhua2.jpg', 'shuhua3.jpg','shuhua4.jpg']
 # The source photos contain this person
-source_image_file_name1 = 'girl1.jpg'
-source_image_file_name2 = 'girl2.jpg'
+source_image_file_names = ['shuhua1.jpg','shuhua2.jpg', 'shuhua3.jpg','shuhua4.jpg']
 
+
+
+'''
 # Detect face(s) from source image 1, returns a list[DetectedFaces]
 # We use detection model 2 because we are not retrieving attributes.
 detected_faces1 = face_client.face.detect_with_url(IMAGE_BASE_URL + source_image_file_name1, detectionModel='detection_02')
@@ -44,6 +46,20 @@ detected_faces2 = face_client.face.detect_with_url(IMAGE_BASE_URL + source_image
 # Add the returned face's face ID
 source_image2_id = detected_faces2[0].face_id
 print('{} face(s) detected from image {}.'.format(len(detected_faces2), source_image_file_name2))
+'''
+
+
+# List for the source face IDs (uuids)
+detected_faces_ids = []
+# Detect faces from target image url list, returns a list[DetectedFaces]
+for image_file_name in source_image_file_names:
+    # We use detection model 2 because we are not retrieving attributes.
+    detected_faces = face_client.face.detect_with_url(IMAGE_BASE_URL + image_file_name, detectionModel='detection_02')
+    # Add the returned face's face ID
+    detected_faces_ids.append(detected_faces[0].face_id)
+    print('{} face(s) detected from image {}.'.format(len(detected_faces), image_file_name))
+
+
 
 # List for the target face IDs (uuids)
 detected_faces_ids = []
