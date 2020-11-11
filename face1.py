@@ -27,9 +27,9 @@ face_client = FaceClient(ENDPOINT, CognitiveServicesCredentials(KEY))
 IMAGE_BASE_URL = 'https://raw.githubusercontent.com/KoYejune0302/2020faceDetectingThermometer/main/'
 
 # Create a list to hold the target photos of the same person
-target_image_file_names = ['shuhua1.jpg','shuhua2.jpg', 'shuhua3.jpg','shuhua4.jpg']
+target_image_file_names = ['shuhua1.jpg','shuhua1.jpg', 'wendy3.jpg','shuhua4.jpg']
 # The source photos contain this person
-source_image_file_names = ['deft1.jpg','deft2.jpg', 'shuhua3.jpg','shuhua4.jpg']
+source_image_file_names = ['seulgi1.jpg','wendy2.jpg', 'wendy3.jpg','shuhua4.jpg']
 
 
 
@@ -73,18 +73,20 @@ for image_file_name in target_image_file_names:
 
 # Verification example for faces of the same person. The higher the confidence, the more identical the faces in the images are.
 # Since target faces are the same person, in this example, we can use the 1st ID in the detected_faces_ids list to compare.
+'''
 verify_result_same = face_client.face.verify_face_to_face(source_detected_faces_ids[0], target_detected_faces_ids[0])
 print('Faces from {} & {} are of the same person, with confidence: {}'
-    .format(source_detected_faces_ids[0], target_image_file_names[0], verify_result_same.confidence)
+    .format(source_image_file_names[0], target_image_file_names[0], verify_result_same.confidence)
     if verify_result_same.is_identical
     else 'Faces from {} & {} are of a different person, with confidence: {}'
-        .format(source_detected_faces_ids[0], target_image_file_names[0], verify_result_same.confidence))
+        .format(source_image_file_names[0], target_image_file_names[0], verify_result_same.confidence))
+'''
 
-# Verification example for faces of different persons.
-# Since target faces are same person, in this example, we can use the 1st ID in the detected_faces_ids list to compare.
-verify_result_diff = face_client.face.verify_face_to_face(source_detected_faces_ids[1], detected_faces_ids[0])
-print('Faces from {} & {} are of the same person, with confidence: {}'
-    .format(source_detected_faces_ids[1], target_image_file_names[0], verify_result_diff.confidence)
-    if verify_result_diff.is_identical
-    else 'Faces from {} & {} are of a different person, with confidence: {}'
-        .format(source_detected_faces_ids[1], target_image_file_names[0], verify_result_diff.confidence))
+for i in range(len(source_image_file_names)):
+    verify_result_same = face_client.face.verify_face_to_face(source_detected_faces_ids[i], target_detected_faces_ids[1])
+    print('Faces from {} & {} are of the same person, with confidence: {}'
+        .format(source_image_file_names[i], target_image_file_names[1], verify_result_same.confidence)
+        if verify_result_same.is_identical
+        else 'Faces from {} & {} are of a different person, with confidence: {}'
+            .format(source_image_file_names[i], target_image_file_names[1], verify_result_same.confidence))
+
