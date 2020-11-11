@@ -90,3 +90,5 @@ for i in range(len(source_image_file_names)):
         else 'Faces from {} & {} are of a different person, with confidence: {}'
             .format(source_image_file_names[i], target_image_file_names[1], verify_result_same.confidence))
 
+
+            
