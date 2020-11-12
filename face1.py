@@ -33,8 +33,27 @@ source_image_file_names = os.listdir('/Users/leekyohyun/Documents/GitHub/2020fac
 # Create a list to hold the target photos of the same person
 target_image_file_names = os.listdir('/Users/leekyohyun/Documents/GitHub/2020faceDetectingThermometer/target')
 
+'''
 for i in range(len(source_image_file_names)):
     print(source_image_file_names[i])
+
+for i in range(len(target_image_file_names)):
+    print(target_image_file_names[i])
+'''
+
+
+for i in range(len(source_image_file_names)):
+    vs=source_image_file_names[i][-4:-1]
+    if(vs=='.jp'):
+        pass
+    else:
+        del source_image_file_names[i]
+for i in range(len(target_image_file_names)):
+    vt=target_image_file_names[i][-4:-1]
+    if(vt=='.jp'):
+        pass
+    else:
+        del target_image_file_names[i]
 
 
 
@@ -71,7 +90,7 @@ target_detected_faces_ids = []
 # Detect faces from target image url list, returns a list[DetectedFaces]
 for image_file_name in target_image_file_names:
     # We use detection model 2 because we are not retrieving attributes.
-    target_detected_faces = face_client.face.detect_with_url(IMAGE_BASE_URL + 'target' + image_file_name, detectionModel='detection_03')
+    target_detected_faces = face_client.face.detect_with_url(IMAGE_BASE_URL + 'target/' + image_file_name, detectionModel='detection_03')
     # Add the returned face's face ID
     target_detected_faces_ids.append(target_detected_faces[0].face_id)
     print('{} face(s) detected from image {}.'.format(len(target_detected_faces), image_file_name))
@@ -88,11 +107,12 @@ print('Faces from {} & {} are of the same person, with confidence: {}'
 '''
 
 for i in range(len(source_image_file_names)):
-    verify_result_same = face_client.face.verify_face_to_face(source_detected_faces_ids[i], target_detected_faces_ids[1])
-    print('Faces from {} & {} are of the same person, with confidence: {}'
-        .format(source_image_file_names[i], target_image_file_names[1], verify_result_same.confidence)
-        if verify_result_same.is_identical
-        else 'Faces from {} & {} are of a different person, with confidence: {}'
-            .format(source_image_file_names[i], target_image_file_names[1], verify_result_same.confidence))
+    for j in range(len(target_image_file_names)):
+        verify_result_same = face_client.face.verify_face_to_face(source_detected_faces_ids[i], target_detected_faces_ids[j])
+        print('Faces from {} & {} are of the same person, with confidence: {}'
+            .format(source_image_file_names[i], target_image_file_names[j], verify_result_same.confidence)
+            if verify_result_same.is_identical
+            else 'Faces from {} & {} are of a different person, with confidence: {}'
+                .format(source_image_file_names[i], target_image_file_names[j], verify_result_same.confidence))
 
 
