@@ -43,14 +43,14 @@ for i in range(len(target_image_file_names)):
     print(target_image_file_names[i])
 
 
-'''
+
 for i in range(len(source_image_file_names)):
     vs=source_image_file_names[i][-4:-1]
     if(vs=='.jp'):
         pass
     else:
         del source_image_file_names[i]
-'''
+
 for i in range(len(target_image_file_names)):
     vt=target_image_file_names[i][-4:-1]
     if(vt=='.jp'):
