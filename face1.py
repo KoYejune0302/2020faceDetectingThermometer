@@ -18,7 +18,6 @@ from azure.cognitiveservices.vision.face.models import TrainingStatusType, Perso
 
 KEY = "fa886e006ae64c50b7a053ec52130f5d"
 
-
 ENDPOINT = "https://leekyohyun.cognitiveservices.azure.com/"
 
 face_client = FaceClient(ENDPOINT, CognitiveServicesCredentials(KEY))
