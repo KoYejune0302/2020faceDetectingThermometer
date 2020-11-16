@@ -107,34 +107,3 @@ for i in range(len(target_image_file_names)):
 
 f.close()
 #verify_result_same.confidence
-
-
-
-'''
-print('Faces from {} & {} are of the same person, with confidence: {}'
-    .format(target_image_file_names[i], source_image_file_names[j], verify_result_same.confidence)
-    if verify_result_same.is_identical
-    else 'Faces from {} & {} are of a different person, with confidence: {}'
-        .format(target_image_file_names[i], source_image_file_names[j], verify_result_same.confidence))
-'''
-
-#csv 작성
-'''
-fd = open('output.csv', 'w', encoding='utf-8', newline='')
-wr = csv.writer(fd,delimiter=',')
-wr.writerow(['name','temperature','check'])
-
-f = open('temperature.txt', 'r')
-i=1
-while True:
-    name = 'name'+str(i)
-    i+=1
-    temperature = f.readline()
-    if not temperature: break
-    check='T'
-    if float(temperature)>=37.5 :
-        check = 'F'
-    row=[str(name),str(temperature),str(check)]
-    wr.writerow(row)
-f.close()
-'''
