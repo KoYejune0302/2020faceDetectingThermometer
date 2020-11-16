@@ -1,6 +1,6 @@
 # 2020faceDetectingThermometer
-2020 소프트웨어 산출물 대회<br>
-아두이노를 이용한 얼굴 인식 체온계<br>
+2020 SW Product Competition<br>
+Face recognition thermometer using Arduino<br>
 ## Development languages
 python, C
 ## Crafting materials
