@@ -1,6 +1,6 @@
 # 2020faceDetectingThermometer
 2020 SW Product Competition<br>
-Face recognition thermometer using Arduino<br>
+Face Detecting Thermometer using Arduino<br>
 ## Development languages
 python, C
 ## Crafting materials
