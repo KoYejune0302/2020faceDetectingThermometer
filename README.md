@@ -1,18 +1,18 @@
 # 2020faceDetectingThermometer
 2020 소프트웨어 산출물 대회<br>
 아두이노를 이용한 얼굴 인식 체온계<br>
-## 사용언어
+## Development languages
 python, C
-## 사용도구
+## Crafting materials
 ArduinoUNO, RGB_LED, Thermometer, Button
-## 개발툴
+## Development tools
 ATOM, ARDUINO, VScode
-## 제작동기
-현재 모든 학교에서 COVID-19의 확산을 막기 위하여 식사 시간 전 발열 체크를 진행하여 기록하고 있다. 하지만 이 과정은 모두 수동으로 이루어지기에 무척이나 번거로울 뿐만 아니라 허위로 기재하는 것도 수월하다는 문제점이 있다. 이에 본 팀은 자동으로 체온을 측정하고 해당 학생의 정보와 체온을 기록하는 장비를 만들어 수동으로 발열 체크를 진행하는 시스템을 대체함으로써 이러한 문제점들을 해결하고자 하였다. 더 나아가 이전에는 수필로 작성된 자료였기에 자료 분석이 어려웠으나 이 작품을 통하여 개선될 것이라 예상한다.
-## 작품요약
-작품을 만들 때 온도 측정 및 사진 촬영을 위하여 아두이노를 사용하였다. 사람의 체온을 측정하기 위해서는 비접촉식 적외선 온도 센서를 이용하였다. 또한, 그 사람이 누구인지 식별하기 위한 과정에서 Arducam으로 사람을 촬영하고 해당 사진을 Microsoft Face API를 이용하여 얼굴을 인식하였다. 
-이 작품 사람의 체온을 비접촉식으로 측정한 뒤, 그 사람이 누구인지를 식별하고 이름과 체온을 기록하는 장치이다. 이 작품을 통하여 더욱 편리하게 발열 체크를 할 수 있다. 카메라 앞에 서서 장치의 버튼을 누르면 체온이 측정됨과 동시에 사진이 촬영된다. 그리고 이 사진을 바탕으로 누구인지를 식별하고 이름과 체온이 기록된다. 이전까지는 사람이 직접 체온을 측정한 후 측정 시각과 자신의 이름을 수기로 작성하기 때문에 번거로움이 있었으나 이 작품을 통하여 이러한 문제를 해결할 수 있다. 또한 체온을 측정하고 기록하는 시간이 대폭 줄어들기에 대학수학능력시험, 학교, 병원과 같이 사람이 많이 몰리는 장소에서 유용하게 쓰일 수 있을 것이다. 더 나아가 이렇게 체계적으로 기록된 데이터를 분석하게 된다면 COVID-19의 역학 조사에 큰 도움이 될 것이라 예상한다. 
-이 작품이 실용화된다면 각자의 얼굴이 담긴 사진, 방문 여부, 체온 등과 같은 개인정보의 보호에 대하여 의문이 제기될 수 있다. 그래서 일정 시간이 지났을 때 저장했던 정보를 삭제하는 기능을 추가하여 이러한 걱정을 줄일 수 있도록 하였다.
+## Production motive
+Currently, in order to prevent the spread of COVID-19 in all schools, a fever check is performed before meal time and recorded. However, there is a problem that this process is not only very cumbersome because it is all done manually, but it is also easy to write false information. Therefore, the team attempted to solve these problems by replacing a system that automatically measures body temperature and records the student's information and body temperature, and manually performs a heat check. Furthermore, it was difficult to analyze the data because it was previously written by essay, but it is expected that it will be improved through this work.
+## Work sumamry
+When creating the work, Arduino was used to measure temperature and take pictures. In order to measure a person's body temperature, a non-contact infrared temperature sensor was used. In addition, in the process of identifying who the person is, the person was photographed with Arducam and the face was recognized using the Microsoft Face API.
+This is a device that measures a person's body temperature in a non-contact manner, identifies who the person is, and records the name and body temperature. Through this work, you can check the heat more conveniently. If you press the button on the device in front of the camera, the body temperature is measured and a picture is taken at the same time. And based on this photo, who is identified, and the name and body temperature are recorded. Previously, it was cumbersome because a person manually measured the body temperature and then wrote the measurement time and his or her name manually, but this work can solve these problems. In addition, since the time to measure and record body temperature is drastically reduced, it will be useful in places where there are a lot of people, such as college entrance exams, schools, and hospitals. Further, it is expected that it will be of great help to the epidemiological investigation of COVID-19 if the data recorded in this way is systematically analyzed.
+If this work is put into practice, questions may be raised regarding the protection of personal information, such as a photograph of each person's face, visitation status, and body temperature. Therefore, a function to delete information stored when a certain time has elapsed has been added to reduce this worry.
 <br>
 <br>
 <img src="https://github.com/KoYejune0302/2020faceDetectingThermometer/blob/main/source/seulgi1.jpg?raw=true">
