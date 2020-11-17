@@ -1,18 +1,3 @@
-.gradtext {
-    background: #55ffaa;
-    background: -webkit-linear-gradient(left, #55ff55, #55ffff);
-    background:    -moz-linear-gradient(right, #55ff55, #55ffff);
-    background:      -o-linear-gradient(right, #55ff55, #55ffff);
-    background:         linear-gradient(to right, #55ff55, #55ffff);
-    -webkit-background-clip: text;
-            background-clip: text;
-    color: transparent;
-    font-size: 48px;
-    font-weight: bold;
-}
-
-
-
 # 2020faceDetectingThermometer
 2020 SW Product Competition<br>
 Face Detecting Thermometer using Arduino<br>
@@ -25,7 +10,7 @@ ATOM, ARDUINO, VScode
 ## Production motive
 Currently, in order to prevent the spread of COVID-19 in all schools, a fever check is performed before meal time and recorded. However, there is a problem that this process is not only very cumbersome because it is all done manually, but it is also easy to write false information. Therefore, the team attempted to solve these problems by replacing a system that automatically measures body temperature and records the student's information and body temperature, and manually performs a heat check. Furthermore, it was difficult to analyze the data because it was previously written by essay, but it is expected that it will be improved through this work.
 ## Work sumamry
-### <span class="gradtext">UDT (Untact face Detecting Thermometer)</span>
+### UDT (Untact face Detecting Thermometer)
 When creating the work, Arduino was used to measure temperature and take pictures. In order to measure a person's body temperature, a non-contact infrared temperature sensor was used. In addition, in the process of identifying who the person is, the person was photographed with Arducam and the face was recognized using the Microsoft Face API. This is a device that measures a person's body temperature in a non-contact manner, then identifies who the person is, and records the name and body temperature.
 <br>
 <br>
