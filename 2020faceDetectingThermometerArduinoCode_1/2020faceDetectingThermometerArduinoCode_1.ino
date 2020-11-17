@@ -1,13 +1,3 @@
-// ArduCAM Mini demo (C)2015 Lee
-// web: http://www.ArduCAM.com
-// This program is a demo of how to use most of the functions
-// of the library with ArduCAM Mini 2MP camera, and can run on any Arduino platform.
-//
-// This demo was made for ArduCAM Mini OV2640 2MP Camera.
-// It needs to be used in combination with PC software.
-// It can take photo continuously as video streaming.
-//
-// The demo sketch will do the following tasks:
 // 1. Set the camera to JEPG output mode.
 // 2. Read data from Serial port and deal with it
 // 3. If receive 0x00-0x08,the resolution will be changed.
@@ -23,6 +13,9 @@
 #include <ArduCAM.h>
 #include <SPI.h>
 #include "memorysaver.h"
+#include <Adafruit_MLX90614.h>
+
+Adafruit_MLX90614 mlx = Adafruit_MLX90614();
 
 #define BMPIMAGEOFFSET 66
 
@@ -58,7 +51,7 @@ void setup() {
   pinMode(ledPinG, OUTPUT);
   pinMode(ledPinB, OUTPUT);
   pinMode(buttonApin, INPUT_PULLUP);
-  
+
   // put your setup code here, to run once:
   uint8_t vid, pid;
   uint8_t temp;
@@ -87,7 +80,7 @@ void setup() {
   }
 
   //Check if the camera module type is OV2640
-  myCAM.wrSensorReg8_8(0xff, 0x01);  
+  myCAM.wrSensorReg8_8(0xff, 0x01);
   myCAM.rdSensorReg8_8(OV2640_CHIPID_HIGH, &vid);
   myCAM.rdSensorReg8_8(OV2640_CHIPID_LOW, &pid);
   if ((vid != 0x26) || (pid != 0x42))
@@ -104,8 +97,8 @@ void setup() {
 }
 
 void loop() {
-  
-    
+
+
   // put your main code here, to run repeatedly:
   uint8_t temp, temp_last;
   uint8_t start_capture = 0;
@@ -113,12 +106,14 @@ void loop() {
   temp=Serial.read();
   //Serial.available()
   if (digitalRead(buttonApin) == LOW)
-  { 
+  {
     digitalWrite(ledPinR, HIGH);
     delay(500);
     digitalWrite(ledPinR, LOW);
     temp=16;
     myCAM.OV2640_set_JPEG_size(OV2640_1600x1200);
+    String strTemp = String("");
+    strTemp += (int)(mlx.readObjectTempC());
 
     /*
     if(temp==16){
@@ -131,7 +126,7 @@ void loop() {
     }
     Serial.println(temp);
     */
-    
+
     switch (temp)
     {
       case 0:
