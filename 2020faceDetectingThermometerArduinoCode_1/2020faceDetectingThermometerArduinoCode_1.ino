@@ -13,9 +13,9 @@
 #include <ArduCAM.h>
 #include <SPI.h>
 #include "memorysaver.h"
-#include <Adafruit_MLX90614.h>
+//#include <Adafruit_MLX90614.h>
 
-Adafruit_MLX90614 mlx = Adafruit_MLX90614();
+//Adafruit_MLX90614 mlx = Adafruit_MLX90614();
 
 #define BMPIMAGEOFFSET 66
 
@@ -51,6 +51,7 @@ void setup() {
   pinMode(ledPinG, OUTPUT);
   pinMode(ledPinB, OUTPUT);
   pinMode(buttonApin, INPUT_PULLUP);
+  //mlx.begin();
 
   // put your setup code here, to run once:
   uint8_t vid, pid;
@@ -112,8 +113,9 @@ void loop() {
     digitalWrite(ledPinR, LOW);
     temp=16;
     myCAM.OV2640_set_JPEG_size(OV2640_1600x1200);
-    String strTemp = String("");
-    strTemp += (int)(mlx.readObjectTempC());
+    //String strTemp = String("");
+    //strTemp += (int)(mlx.readObjectTempC());
+    //Serial.println(strTemp);
 
     /*
     if(temp==16){
