@@ -16,9 +16,9 @@ from msrest.authentication import CognitiveServicesCredentials
 from azure.cognitiveservices.vision.face.models import TrainingStatusType, Person
 
 
-KEY = "fa886e006ae64c50b7a053ec52130f5d"
+KEY = "key"
 
-ENDPOINT = "https://leekyohyun.cognitiveservices.azure.com/"
+ENDPOINT = "endpoint"
 
 face_client = FaceClient(ENDPOINT, CognitiveServicesCredentials(KEY))
 
